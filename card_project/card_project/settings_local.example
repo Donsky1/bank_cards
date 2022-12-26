@@ -1,0 +1,6 @@
+# base settings, to use project to change this params
+LANGUAGE_CODE = 'ru-RU'
+AUTH_USER_MODEL = 'app_user.MyUser'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'

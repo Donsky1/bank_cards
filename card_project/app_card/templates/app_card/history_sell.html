@@ -1,0 +1,33 @@
+{% extends "admin/index.html" %}
+{% load i18n admin_urls %}
+{% block content %}
+<div id="content-main">
+  <p>История покупок:</p><hr>
+  <table>
+    <tr>
+      <td>Номер транзакции</td>
+      <td>Дата покупки</td>
+      <td>Номер карты</td>
+      <td>Продукт</td>
+      <td>Цена</td>
+    </tr>
+  {% if logs %}
+    {% for log in logs %}
+      <tr>
+        <td>{{ log.id }}</td>
+        <td>{{ log.date|date:"d-m-Y H:i:s" }}</td>
+        <td>{{ log.card.split_number }}</td>
+        <td>{{ log.product.name }}</td>
+        <td>{{ log.product.price }}</td>
+      </tr>
+    {% endfor %}
+  {% endif %}
+  </table>
+
+  <p>
+    <form action="../" method="get">
+      <input type="submit" value="Назад">
+    </form>
+  </p>
+</div>
+{% endblock %}
